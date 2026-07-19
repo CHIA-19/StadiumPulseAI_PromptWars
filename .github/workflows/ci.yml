@@ -9,17 +9,6 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        workdir:
-          - .
-          - frontend-fan-pwa
-          - frontend-volunteer-app
-          - ops-dashboard
-          - agents/concierge-agent
-    defaults:
-      run:
-        working-directory: ${{ matrix.workdir }}
     steps:
       - uses: actions/checkout@v4
       - name: Setup Node
@@ -28,8 +17,9 @@ jobs:
           node-version: "20"
           cache: npm
       - name: Install dependencies
-        run: npm install
-      - name: Lint
+        run: npm install --workspaces --if-present
+      - name: Lint all packages
         run: npm run lint || true
-      - name: Test
+      - name: Run all tests
         run: npm test
+

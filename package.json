@@ -1,0 +1,17 @@
+{
+  "name": "stadium-pulse-ai",
+  "version": "1.0.0",
+  "private": true,
+  "workspaces": [
+    "frontend-fan-pwa",
+    "frontend-volunteer-app",
+    "ops-dashboard",
+    "agents/*",
+    "data/mock-sensors"
+  ],
+  "scripts": {
+    "test": "npm test --workspaces --if-present",
+    "lint": "npm run lint --workspaces --if-present",
+    "start:sensors": "npm start --workspace=data/mock-sensors"
+  }
+}
