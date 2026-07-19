@@ -40,6 +40,9 @@ app.post('/api/routes', async (req, res) => {
 });
 
 const PORT = process.env.PORT || 8083;
-app.listen(PORT, () => {
-  console.log(`Mobility Agent running on port ${PORT}`);
-});
+if (process.env.NODE_ENV !== 'test') {
+  app.listen(PORT, () => {
+    console.log(`Mobility Agent running on port ${PORT}`);
+  });
+}
+export default app;

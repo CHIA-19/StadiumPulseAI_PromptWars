@@ -40,6 +40,9 @@ app.post('/api/report', async (req, res) => {
 });
 
 const PORT = process.env.PORT || 8084;
-app.listen(PORT, () => {
-  console.log(`Sustainability Agent running on port ${PORT}`);
-});
+if (process.env.NODE_ENV !== 'test') {
+  app.listen(PORT, () => {
+    console.log(`Sustainability Agent running on port ${PORT}`);
+  });
+}
+export default app;

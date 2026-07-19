@@ -4,13 +4,18 @@
   "description": "StadiumPulse AI Incident Triage Agent",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "node index.js",
+    "test": "vitest run"
   },
   "dependencies": {
+    "@google/genai": "latest",
     "cors": "^2.8.5",
     "dotenv": "^16.4.5",
-    "express": "^4.21.0",
-    "@google/genai": "latest"
+    "express": "^4.21.0"
+  },
+  "devDependencies": {
+    "supertest": "^7.2.2",
+    "vitest": "^4.1.10"
   },
   "type": "module"
 }
